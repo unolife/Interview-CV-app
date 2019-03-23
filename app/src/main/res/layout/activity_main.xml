@@ -8,31 +8,58 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button_IV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/button_CV"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="117dp"
+        android:layout_marginLeft="117dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginRight="117dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_ic"
+        android:text="Interview"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/button_CV"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="102dp"
         android:background="@drawable/button_ic"
-        android:text="자소서"
-        android:textSize="30sp"/>
+        android:text="Coverletter"
+        android:textSize="20sp"
+
+         />
+
 
     <Button
-        android:id="@+id/button_IV"
+        android:id="@+id/button_TN"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignTop="@+id/button_CV"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="102dp"
+        android:layout_toEndOf="@+id/button_CV"
+        android:layout_toRightOf="@+id/button_CV"
         android:background="@drawable/button_ic"
-        android:text="면접 질문"
-        android:textSize="30sp"/>
+        android:text="Term"
+        android:textSize="20sp" />
 
 </RelativeLayout>

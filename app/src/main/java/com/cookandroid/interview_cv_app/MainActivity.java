@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_cv, btn_iv;
+    Button btn_cv, btn_iv, btn_tn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_cv = (Button) findViewById(R.id.button_CV);
         btn_iv = (Button) findViewById(R.id.button_IV);
+        btn_tn = (Button) findViewById(R.id.button_TN);
 
         // 자소서 버튼
         btn_cv.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Intent = new Intent(MainActivity.this, IVActivity.class);
+                startActivity(Intent);
+            }
+        });
+
+        // 용어 버튼
+        btn_tn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Intent = new Intent(MainActivity.this, TermActivity.class);
                 startActivity(Intent);
             }
         });
