@@ -16,10 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CVActivity"
-            android:label="기업 목록"/>
-        <activity android:name=".IVActivity"
-            android:label="기업 목록"/>
+        <activity
+            android:name=".CVActivity"
+            android:label="기업 목록" />
+        <activity
+            android:name=".IVActivity"
+            android:label="기업 목록" />
+        <activity android:name=".CVitemActivity"></activity>
     </application>
 
 </manifest>

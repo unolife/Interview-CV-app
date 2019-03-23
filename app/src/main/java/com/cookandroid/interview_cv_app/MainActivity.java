@@ -14,20 +14,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 상단 아이콘
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
 
         btn_cv = (Button) findViewById(R.id.button_CV);
         btn_iv = (Button) findViewById(R.id.button_IV);
 
+        // 자소서 버튼
         btn_cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Intent = new Intent(MainActivity.this, CVActivity.class);
-                startActivity(Intent);
+                Intent intent = new Intent(MainActivity.this, CVActivity.class);
+                intent.putExtra("cv", new CV(1, ""));
+                startActivity(intent);
             }
         });
 
+        // 면접 질문 버튼
         btn_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
