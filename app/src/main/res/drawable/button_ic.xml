@@ -6,4 +6,8 @@
     <solid
         andriod:color="#77cc77"
         />
+    <size
+        andriod:height="10px"
+        andriod:width="10px"
+        />
 </shape>
