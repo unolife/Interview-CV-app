@@ -43,14 +43,15 @@ public class CVitemActivity extends AppCompatActivity {
         try {
             // JSON 객체 생성
             JSONObject obj = new JSONObject(loadJSONFromAsset());
-            // "people"이 배열로 구성되어 있으므로 JSON 객체 생성
-            JSONArray arr = new JSONArray(obj.getString("people"));
+            // "CV"이 배열로 구성되어 있으므로 JSON 객체 생성
+            JSONArray arr = new JSONArray(obj.getString("CV"));
 
             for (int i = 0; i < arr.length(); i++) {
                 // people 배열 안에 내부 JSON이므로 JSON 내부 객체 생성
-                JSONObject insidObject = arr.getJSONObject(i);
-                sb.append("이름: ").append(insidObject.getString("name")).append("\n");
-                sb.append("나이: ").append(insidObject.getString("age")).append("\n");
+                JSONObject insideObject = arr.getJSONObject(i);
+                sb.append("아이디: ").append(insideObject.getString("com_id")).append("\n");
+                sb.append("회사명: ").append(insideObject.getString("com_name")).append("\n");
+//                sb.append("자소서 목록: ").append(insideObject.getString("CVList")).append("\n");
             }
         } catch (JSONException e) {
             e.printStackTrace();
