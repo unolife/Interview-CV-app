@@ -41,7 +41,7 @@
         android:layout_marginTop="300dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/button_ic"
-        android:text="Term"
+        android:text="Calender"
         android:textSize="20sp"
         />
 
