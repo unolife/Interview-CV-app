@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,15 +23,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
-
 public class CalenderActivity extends AppCompatActivity {
 
     // chrome://inspect/#devices  -> stetho debugging address
 
-    TextView textView1;
+    TextView textView1, textView2, textView3;
     MyService service;
-
+    JSONObject jsonObject, result;
+    Object first;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,6 @@ public class CalenderActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addNetworkInterceptor(new StethoInterceptor())
                 .build();
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://oofx7lo6we.execute-api.ap-northeast-2.amazonaws.com/")
                 .client(okHttpClient)
@@ -50,6 +49,9 @@ public class CalenderActivity extends AppCompatActivity {
         service = retrofit.create(MyService.class);
 
         textView1 = findViewById(R.id.text1);
+        textView2 = findViewById(R.id.text2);
+        textView3 = findViewById(R.id.text3);
+
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +59,22 @@ public class CalenderActivity extends AppCompatActivity {
             }
         });
 
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    result = (JSONObject) jsonObject.get("body");
+                    first = result.get("0");
+
+                    Log.v("Test", String.valueOf(result));
+                    textView3.setText(String.valueOf(first));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Log.v("Test", String.valueOf(jsonObject));
     }
 
     public void requestData(){
@@ -65,11 +83,12 @@ public class CalenderActivity extends AppCompatActivity {
         getCalenderData.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                JSONObject jsonObject;
+
                 try {
                     jsonObject = new JSONObject(response.body().string());
-                    textView1.setText(String.valueOf(jsonObject));
                     Log.v("Test", String.valueOf(jsonObject));
+                    textView2.setText(String.valueOf(jsonObject));
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
