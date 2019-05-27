@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public class CVActivity extends AppCompatActivity {
     final ArrayList<CV> CVlist = new ArrayList<>();
-    RecyclerView RecyclerView;
-    RecyclerView.LayoutManager LayoutManager;
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +29,21 @@ public class CVActivity extends AppCompatActivity {
 
     private void bindView() {
         // Recyclerview 생성
-        RecyclerView = findViewById(R.id.recycler_view);
-        RecyclerView.setHasFixedSize(true);
-        LayoutManager = new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // MyAdapter 생성
         MyAdapter myAdapter = new MyAdapter(CVlist);
-        RecyclerView.setLayoutManager(LayoutManager);
-        RecyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(myAdapter);
 
         // MyAdapter에 리스너 등록
         myAdapter.setListener(new MyAdapter.ButtonListener() {
             @Override
             public void startTargetActivity(int position) {
-                Intent intent = new Intent(CVActivity.this, CVitemActivity.class);
+                Intent intent = new Intent(CVActivity.this, CVDetailActivity.class);
                 intent.putExtra("CV", CVlist.get(position));
                 startActivity(intent);
             }

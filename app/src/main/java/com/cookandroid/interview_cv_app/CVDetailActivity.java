@@ -12,8 +12,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class CVitemActivity extends AppCompatActivity {
-    private static final int LAYOUT = R.layout.activity_cvitem;
+public class CVDetailActivity extends AppCompatActivity {
+    private static final int LAYOUT = R.layout.activity_cvdetail;
 
     ImageView ivPicture;
     TextView tvCname;
@@ -63,7 +63,7 @@ public class CVitemActivity extends AppCompatActivity {
 
     public void hello2(String a) {
         CV cv = (CV) getIntent().getSerializableExtra("CV");
-        ivPicture.setImageResource(cv.getDrawableId());
+        ivPicture.setImageResource(cv.getImagResource());
         tvCname.setText(a);
         hi.setText("1");
     }

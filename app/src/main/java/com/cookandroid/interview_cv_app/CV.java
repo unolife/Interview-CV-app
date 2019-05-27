@@ -3,28 +3,19 @@ package com.cookandroid.interview_cv_app;
 import java.io.Serializable;
 
 public class CV implements Serializable {
-    private int drawableId;
+    private int imagResource;
     private String cname;
 
-    public int getDrawableId() {
-        return drawableId;
-    }
-
-    public void setDrawableId(int drawableId) {
-        this.drawableId = drawableId;
+    public int getImagResource() {
+        return imagResource;
     }
 
     public String getCname() {
         return cname;
     }
 
-    public void setCname(String cname) {
-        this.cname = cname;
-    }
-
-    public CV(int drawableId, String cname) {
-
-        this.drawableId = drawableId;
+    public CV(int imagResource, String cname) {
+        this.imagResource = imagResource;
         this.cname = cname;
     }
 }

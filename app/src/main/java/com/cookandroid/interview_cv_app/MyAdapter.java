@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ButtonListener listener;
-    private ArrayList<CV> CV;
+    private ArrayList<CV> CVList;
 
-    MyAdapter(ArrayList<CV> CV) {
-        this.CV = CV;
+    MyAdapter(ArrayList<CV> CVList) {
+        this.CVList = CVList;
     }
 
     public interface ButtonListener {
@@ -28,7 +28,6 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
         ImageView ivPicture;
         Button btnCname;
 
@@ -37,22 +36,28 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ivPicture = view.findViewById(R.id.iv_picture);
             btnCname = view.findViewById(R.id.btn_cname);
         }
+
+        private void setData(int resource, String cname){
+            ivPicture.setImageResource(resource);
+            btnCname.setText(cname);
+        }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_row, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cv_item, parent, false);
 
         return new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder,  final int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;
+        int resource = CVList.get(position).getImagResource();
+        String cname = CVList.get(position).getCname();
 
-        myViewHolder.ivPicture.setImageResource(CV.get(position).getDrawableId());
-        myViewHolder.btnCname.setText(CV.get(position).getCname());
+        myViewHolder.setData(resource, cname);
 
         myViewHolder.btnCname.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return CV.size();
+        return CVList.size();
     }
 
 }
