@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CVActivity extends AppCompatActivity {
-    final ArrayList<CV> CVlist = new ArrayList<>();
+    ArrayList<CV> CVList = new ArrayList<>();
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
 
@@ -20,11 +20,11 @@ public class CVActivity extends AppCompatActivity {
 
         bindView();
 
-        CVlist.add(new CV(R.drawable.samsungelectronics, "삼성전자"));
-        CVlist.add(new CV(R.drawable.skcnc, "SK C&C"));
-        CVlist.add(new CV(R.drawable.lgcns, "LG CNS"));
-        CVlist.add(new CV(R.drawable.kt, "KT"));
-        CVlist.add(new CV(R.drawable.hyundaiautoever, "현대 오토에버"));
+        CVList.add(new CV(R.drawable.samsungelectronics, "삼성전자"));
+        CVList.add(new CV(R.drawable.skcnc, "SK C&C"));
+        CVList.add(new CV(R.drawable.lgcns, "LG CNS"));
+        CVList.add(new CV(R.drawable.kt, "KT"));
+        CVList.add(new CV(R.drawable.hyundaiautoever, "현대 오토에버"));
     }
 
     private void bindView() {
@@ -35,7 +35,7 @@ public class CVActivity extends AppCompatActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // MyAdapter 생성
-        MyAdapter myAdapter = new MyAdapter(CVlist);
+        MyAdapter myAdapter = new MyAdapter(CVList);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(myAdapter);
 
@@ -44,7 +44,7 @@ public class CVActivity extends AppCompatActivity {
             @Override
             public void startTargetActivity(int position) {
                 Intent intent = new Intent(CVActivity.this, CVDetailActivity.class);
-                intent.putExtra("CV", CVlist.get(position));
+                intent.putExtra("CV", CVList.get(position));
                 startActivity(intent);
             }
         });

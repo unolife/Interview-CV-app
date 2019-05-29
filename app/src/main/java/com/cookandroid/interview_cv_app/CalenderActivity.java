@@ -2,8 +2,11 @@ package com.cookandroid.interview_cv_app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.TextView;
 
 import com.facebook.stetho.Stetho;
@@ -14,6 +17,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -27,15 +32,42 @@ public class CalenderActivity extends AppCompatActivity {
 
     // chrome://inspect/#devices  -> stetho debugging address
 
+    private RecyclerView recyclerView;
     TextView textView1, textView2, textView3;
     MyService service;
     JSONObject jsonObject, result;
     Object first;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
 
+        recyclerView = findViewById(R.id.recycler_view2);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        List<Calender> calenderList = new ArrayList<>();
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+        calenderList.add(new Calender("회사명", "직무이름","업무","마감일"));
+
+        CalenderAdapter adapter = new CalenderAdapter(calenderList);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        // Stetho and Retrofit
         Stetho.initializeWithDefaults(this);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addNetworkInterceptor(new StethoInterceptor())
@@ -49,8 +81,8 @@ public class CalenderActivity extends AppCompatActivity {
         service = retrofit.create(MyService.class);
 
         textView1 = findViewById(R.id.text1);
-        textView2 = findViewById(R.id.text2);
-        textView3 = findViewById(R.id.text3);
+//        textView2 = findViewById(R.id.text2);
+//        textView3 = findViewById(R.id.text3);
 
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,20 +91,20 @@ public class CalenderActivity extends AppCompatActivity {
             }
         });
 
-        textView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    result = (JSONObject) jsonObject.get("body");
-                    first = result.get("0");
-
-                    Log.v("Test", String.valueOf(result));
-                    textView3.setText(String.valueOf(first));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        textView3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    result = (JSONObject) jsonObject.get("body");
+//                    first = result.get("0");
+//
+//                    Log.v("Test", String.valueOf(result));
+//                    textView3.setText(String.valueOf(first));
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
         Log.v("Test", String.valueOf(jsonObject));
     }
@@ -87,7 +119,7 @@ public class CalenderActivity extends AppCompatActivity {
                 try {
                     jsonObject = new JSONObject(response.body().string());
                     Log.v("Test", String.valueOf(jsonObject));
-                    textView2.setText(String.valueOf(jsonObject));
+//                    textView2.setText(String.valueOf(jsonObject));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

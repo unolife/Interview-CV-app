@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".CVDetailActivity">
 
     <ImageView
         android:id="@+id/iv_picture"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_gravity="center_vertical"
         android:layout_margin="10dp"
-        tools:src="@drawable/samsungelectronics"
+        tools:src="@mipmap/ic_launcher"
         />
 
     <TextView
         android:id="@+id/tv_cname"
+        android:layout_toRightOf="@id/iv_picture"
+        android:layout_toEndOf="@id/iv_picture"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textSize="20sp"
-        tools:text="삼성전자"
-        android:background="#ffffff"
-        />
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        tools:text="company name"
+        android:background="#ffffff" />
 
     <TextView
-        android:id="@+id/hi"
-        android:layout_width="match_parent"
+        android:id="@+id/year"
+        android:layout_below="@id/iv_picture"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"
-        />
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:text="작성 연도: " />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/year_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_picture"
+        android:layout_toRightOf="@id/year"
+        android:layout_toEndOf="@id/year"
+        android:gravity="center"
+        android:text="year_content"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/qna"
+        android:layout_below="@id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:text="QnA: " />
+
+    <TextView
+        android:id="@+id/qna_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/year_content"
+        android:layout_toRightOf="@id/qna"
+        android:layout_toEndOf="@id/qna"
+        android:gravity="center"
+        android:text="qna_content"
+        android:textSize="20sp" />
+
+</RelativeLayout>

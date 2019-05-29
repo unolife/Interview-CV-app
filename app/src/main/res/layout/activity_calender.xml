@@ -6,22 +6,22 @@
     android:layout_height="match_parent"
     tools:context="CalenderActivity">
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:background="#a3b7ff"
-        />
+    <!--<TextView-->
+        <!--android:id="@+id/text2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="#a3b7ff"-->
+        <!--/>-->
 
-    <TextView
-        android:layout_below="@id/text2"
-        android:id="@+id/text3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:background="#3fff1f"
-        />
+    <!--<TextView-->
+        <!--android:layout_below="@id/text2"-->
+        <!--android:id="@+id/text3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="#3fff1f"-->
+        <!--/>-->
 
     <TextView
         android:id="@+id/text1"
@@ -32,5 +32,10 @@
         android:layout_height="wrap_content"
         android:background="#aaaaaa"
         android:text="update"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

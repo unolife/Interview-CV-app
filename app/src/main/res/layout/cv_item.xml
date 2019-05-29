@@ -20,7 +20,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
-            tools:src="@drawable/samsungelectronics"
+            tools:src="@mipmap/ic_launcher"
             />
 
         <Button
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="20sp"
-            tools:text="삼성전자"
+            tools:text="회사명"
             android:background="#ffffff"
             />
     </LinearLayout>

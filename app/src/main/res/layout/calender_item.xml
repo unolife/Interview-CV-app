@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/com_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="com_name"
+        android:textSize="30dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/deadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/task"
+        android:layout_below="@id/job_title"
+        android:text="deadline"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/job_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/com_name"
+        android:text="job_title"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/com_name"
+        android:text="task"
+        android:textSize="30dp"
+        android:layout_marginRight="10dp"/>
+</RelativeLayout>
