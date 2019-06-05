@@ -4,6 +4,6 @@
         andriod:radius="500dp"
         />
     <solid
-        andriod:color="#77cc77"
+        andriod:color="@color/colorLightGreen"
         />
 </shape>

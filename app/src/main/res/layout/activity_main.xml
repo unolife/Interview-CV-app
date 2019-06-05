@@ -6,40 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="1"
     tools:context=".MainActivity">
 
 
     <Button
         android:id="@+id/button_CV"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_weight="0.33"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="5dp"
         android:background="@drawable/button_ic"
         android:text="CV"
         android:textSize="20sp"
          />
 
     <Button
-        android:id="@+id/button_IV"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_weight="0.33"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/button_ic"
-        android:text="Interview"
-        android:textSize="20sp" />
-
-
-    <Button
         android:id="@+id/button_TN"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_weight="0.33"
-        android:layout_marginTop="300dp"
-        android:layout_marginRight="5dp"
         android:background="@drawable/button_ic"
         android:text="Calender"
         android:textSize="20sp"

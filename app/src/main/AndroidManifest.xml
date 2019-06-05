@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.interview_cv_app">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -9,6 +11,8 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +26,12 @@
         <activity
             android:name=".IVActivity"
             android:label="면접 질문" />
-        <activity android:name=".CVDetailActivity"
-            android:label="자소서 항목"/>
-        <activity android:name=".CalenderActivity"
-            android:label="공채일정"></activity>
+        <activity
+            android:name=".CVDetailActivity"
+            android:label="자소서 항목" />
+        <activity
+            android:name=".CalenderActivity"
+            android:label="공채일정" />
     </application>
-
 
 </manifest>
