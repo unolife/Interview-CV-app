@@ -99,10 +99,6 @@ public class CoverLetterActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent3);
                 return true;
-            case R.id.CoverLetter:
-                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-                startActivity(intent4);
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }

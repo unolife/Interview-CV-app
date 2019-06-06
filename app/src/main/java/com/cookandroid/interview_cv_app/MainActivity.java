@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int LAYOUT = R.layout.activity_main;
     private static final int REQUEST_CODE_INSERT = 1000;
     private CVAdapter cvAdapter;
-    Button btn_tn;
+    FloatingActionButton fab;
+    ImageView news;
+//    Button btn_tn;
 
     ListView listView;
 
@@ -33,8 +37,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
-
         bindView();
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CoverLetterActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_INSERT);
+            }
+        });
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NewsActivity.class));
+            }
+        });
         Cursor cursor = getCVCursor();
         cvAdapter = new MainActivity.CVAdapter(this, cursor);
         listView.setAdapter(cvAdapter);
@@ -84,14 +102,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 용어 버튼
-        btn_tn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Intent = new Intent(MainActivity.this, CalenderActivity.class);
-                startActivity(Intent);
-            }
-        });
+//        // 용어 버튼
+//        btn_tn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent Intent = new Intent(MainActivity.this, CalenderActivity.class);
+//                startActivity(Intent);
+//            }
+//        });
     }
 
     private Cursor getCVCursor() {
@@ -125,7 +143,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
         listView = findViewById(R.id.cv_list);
-        btn_tn = (Button) findViewById(R.id.button_TN);
+//        btn_tn = (Button) findViewById(R.id.button_TN);
+        fab = findViewById(R.id.floatingActionButton);
+        news = findViewById(R.id.newspaper);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,8 +158,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.signIn:
-                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(intent1);
                 return true;
             case R.id.signUp:
                 Intent intent2 = new Intent(getApplicationContext(), SignUpActivity.class);
@@ -148,10 +168,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.myPage:
                 Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent3);
-                return true;
-            case R.id.CoverLetter:
-                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-                startActivityForResult(intent4, REQUEST_CODE_INSERT);
                 return true;
         }
         return super.onOptionsItemSelected(item);

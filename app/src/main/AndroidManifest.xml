@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".CoverLetterActivity"></activity>
+        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".CoverLetterActivity" />
         <activity android:name=".MyPageActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />

@@ -17,11 +17,4 @@
         android:title="마이페이지"
         app:showAsAction="never">
     </item>
-
-    <item
-        android:id="@+id/CoverLetter"
-        android:title="자소서 작성"
-        app:showAsAction="never">
-    </item>
-
 </menu>

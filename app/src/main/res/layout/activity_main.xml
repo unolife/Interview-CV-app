@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,17 +7,54 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button_TN"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_ic"
-        android:text="Calender"
-        android:textSize="20sp"
-        />
+        android:text="오늘의 뉴스"/>
+
+    <ImageView
+        android:id="@+id/newspaper"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:clickable="true"
+        android:src="@drawable/newspaper" />
+
+    <TextView
+        android:id="@+id/tv_cv"
+        android:layout_below="@id/newspaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자소서 질문 목록"/>
 
     <ListView
         android:id="@+id/cv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_cv">
+
+    </ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ListView>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        app:fabSize="auto"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        app:useCompatPadding="true"
+        tools:ignore="VectorDrawableCompat" />
+
+    <!--<Button-->
+    <!--android:id="@+id/button_TN"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/button_ic"-->
+    <!--android:text="Calender"-->
+    <!--android:textSize="20sp"-->
+    <!--/>-->
+
+
+</RelativeLayout>
