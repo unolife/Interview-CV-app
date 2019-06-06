@@ -146,14 +146,14 @@ public class SignUpActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(intent2);
                 return true;
-//            case R.id.myPage:
-//                Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
-//                startActivity(intent3);
-//                return true;
-//            case R.id.CoverLetter:
-//                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-//                startActivity(intent4);
-//                return true;
+            case R.id.myPage:
+                Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
+                startActivity(intent3);
+                return true;
+            case R.id.CoverLetter:
+                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
+                startActivity(intent4);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
