@@ -35,9 +35,11 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        // 상단 아이콘
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icon2);
         TextInputEditText_ID = findViewById(R.id.TextInputEditText_email);
         TextInputEditText_password = findViewById(R.id.TextInputEditText_password);
-
         Button_signin = findViewById(R.id.btn_login);
         Button_join = findViewById(R.id.btn_signup);
 
@@ -158,10 +160,6 @@ public class SignInActivity extends AppCompatActivity {
             case R.id.myPage:
                 Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent3);
-                return true;
-            case R.id.CoverLetter:
-                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-                startActivity(intent4);
                 return true;
         }
         return super.onOptionsItemSelected(item);

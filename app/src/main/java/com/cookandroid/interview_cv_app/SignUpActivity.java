@@ -36,11 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        // 상단 아이콘
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icon2);
         email_textfield = findViewById(R.id.EditText_Email);
         password_textfield = findViewById(R.id.EditText_Password);
         password2_textfield = findViewById(R.id.EditText_Password2);
-
-
         btn_join = findViewById(R.id.Button_join);
 
         mAuth = FirebaseAuth.getInstance();
@@ -149,10 +150,6 @@ public class SignUpActivity extends AppCompatActivity {
             case R.id.myPage:
                 Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent3);
-                return true;
-            case R.id.CoverLetter:
-                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-                startActivity(intent4);
                 return true;
         }
         return super.onOptionsItemSelected(item);

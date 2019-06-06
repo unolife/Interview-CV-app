@@ -32,6 +32,9 @@ public class MyPageActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         userDB = mDatabase.child("users").child(userId(currentUser.getEmail())).child("userInfo");
 
+        // 상단 아이콘
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icon2);
         email = findViewById(R.id.TextView_email);
         nickname = findViewById(R.id.TextView_nickname);
         name = findViewById(R.id.TextView_name);
@@ -89,10 +92,6 @@ public class MyPageActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(intent3);
                 return true;
-//            case R.id.CoverLetter:
-//                Intent intent4 = new Intent(getApplicationContext(), CoverLetterActivity.class);
-//                startActivity(intent4);
-//                return true;
         }
         return super.onOptionsItemSelected(item);
     }

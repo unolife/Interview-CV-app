@@ -9,15 +9,6 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button_CV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_ic"
-        android:text="CV"
-        android:textSize="20sp"
-         />
-
-    <Button
         android:id="@+id/button_TN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,6 +21,4 @@
         android:id="@+id/cv_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
-
-
 </LinearLayout>

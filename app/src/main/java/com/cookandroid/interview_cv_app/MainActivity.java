@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int LAYOUT = R.layout.activity_main;
     private static final int REQUEST_CODE_INSERT = 1000;
     private CVAdapter cvAdapter;
-    Button btn_cv;
     Button btn_tn;
 
     ListView listView;
@@ -85,17 +84,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 자소서 버튼
-        btn_cv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CVActivity.class);
-                intent.putExtra("cv", new CV(1, ""));
-                startActivity(intent);
-            }
-        });
-
-
         // 용어 버튼
         btn_tn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
         listView = findViewById(R.id.cv_list);
-        btn_cv = (Button) findViewById(R.id.button_CV);
         btn_tn = (Button) findViewById(R.id.button_TN);
     }
 

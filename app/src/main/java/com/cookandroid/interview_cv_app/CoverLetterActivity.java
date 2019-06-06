@@ -24,6 +24,9 @@ public class CoverLetterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cover_letter);
 
+        // 상단 아이콘
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icon2);
         mQuestion = findViewById(R.id.question);
         mAnswer = findViewById(R.id.answer);
         btnStore = findViewById(R.id.store);
