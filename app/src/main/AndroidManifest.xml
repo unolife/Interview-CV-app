@@ -24,15 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CVActivity"
-            android:label="기업 목록" />
-        <activity
-            android:name=".IVActivity"
-            android:label="면접 질문" />
-        <activity
-            android:name=".CVDetailActivity"
-            android:label="자소서 항목" />
-        <activity
             android:name=".CalenderActivity"
             android:label="공채일정" />
     </application>

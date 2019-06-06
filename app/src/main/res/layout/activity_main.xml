@@ -10,7 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="오늘의 뉴스"/>
+        android:text="@string/todays_news"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/newspaper"
@@ -24,7 +26,9 @@
         android:layout_below="@id/newspaper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="자소서 질문 목록"/>
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/qna_list"/>
 
     <ListView
         android:id="@+id/cv_list"

@@ -33,6 +33,10 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+        // 상단 아이콘
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.icon2);
+
         mRecyclerView = findViewById(R.id.recycler_view);
 
         mRecyclerView.setHasFixedSize(true);
@@ -66,12 +70,12 @@ public class NewsActivity extends AppCompatActivity {
 
                                 NewsData newsData = new NewsData();
 
-                                newsData.setContent(obj.getString("content"));
+                                newsData.setContent(obj.getString("description"));
                                 newsData.setTitle(obj.getString("title"));
                                 newsData.setUrlToImage(obj.getString("urlToImage"));
                                 news.add(newsData);
                             }
-                            mAdapter = new MyAdapter(news);
+                            mAdapter = new MyAdapter(news, NewsActivity.this);
                             mRecyclerView.setAdapter(mAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
