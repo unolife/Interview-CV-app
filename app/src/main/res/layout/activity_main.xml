@@ -8,27 +8,29 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_news"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/todays_news"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/newspaper"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/newspaper" />
 
     <TextView
         android:id="@+id/tv_cv"
-        android:layout_below="@id/newspaper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/newspaper"
+        android:text="@string/qna_list"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/qna_list"/>
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/cv_list"
@@ -46,19 +48,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:clickable="true"
+        android:focusable="true"
         app:fabSize="auto"
         app:srcCompat="@drawable/ic_add_black_24dp"
         app:useCompatPadding="true"
         tools:ignore="VectorDrawableCompat" />
-
-    <!--<Button-->
-    <!--android:id="@+id/button_TN"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@drawable/button_ic"-->
-    <!--android:text="Calender"-->
-    <!--android:textSize="20sp"-->
-    <!--/>-->
-
 
 </RelativeLayout>

@@ -64,7 +64,7 @@ public class NewsActivity extends AppCompatActivity {
 
                             List<NewsData> news = new ArrayList<>();
 
-                            for(int i=0, j=arr.length();i<j;i++){
+                            for (int i = 0, j = arr.length(); i < j; i++) {
                                 JSONObject obj = arr.getJSONObject(i);
                                 Log.d("NEWS", obj.toString());
 

@@ -11,7 +11,7 @@
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="질문"/>
+        android:hint="@string/question"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,12 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:hint="답변" />
+            android:hint="@string/answer" />
     </ScrollView>
 
     <Button
         android:id="@+id/store"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="저장" />
+        android:text="@string/store" />
 </LinearLayout>

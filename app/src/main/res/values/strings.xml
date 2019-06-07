@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">CNC</string>
+    <string name="app_name">CVN</string>
     <string name="todays_news">Today\'s News</string>
     <string name="qna_list">Q&amp;A List</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signin">SignIn</string>
+    <string name="signup">SingUp</string>
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
+    <string name="store">Store</string>
+    <string name="password2">Password Again</string>
+    <string name="name">Name</string>
+    <string name="tel">Cell Phone Number</string>
 </resources>

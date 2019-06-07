@@ -14,7 +14,7 @@
         android:textStyle="bold"
         android:textColor="#ff555555"
         android:textSize="15dp"
-        android:text="이메일"/>
+        android:text="@string/email"/>
 
     <TextView
         android:id="@+id/TextView_email"
@@ -23,23 +23,6 @@
         android:layout_width="350dp"
         android:layout_height="35dp" />
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="닉네임"/>
-
-    <TextView
-        android:id="@+id/TextView_nickname"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp" />
 
     <TextView
         android:layout_marginTop="10dp"
@@ -54,24 +37,6 @@
 
     <TextView
         android:id="@+id/TextView_name"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp" />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="학번"/>
-
-    <TextView
-        android:id="@+id/TextView_collagenum"
         android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:layout_width="350dp"

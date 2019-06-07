@@ -23,9 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CalenderActivity"
-            android:label="공채일정" />
     </application>
 
 </manifest>

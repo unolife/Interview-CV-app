@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private CVAdapter cvAdapter;
     FloatingActionButton fab;
     ImageView news;
-//    Button btn_tn;
-
     ListView listView;
 
     @Override
@@ -101,15 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-//        // 용어 버튼
-//        btn_tn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent Intent = new Intent(MainActivity.this, CalenderActivity.class);
-//                startActivity(Intent);
-//            }
-//        });
     }
 
     private Cursor getCVCursor() {
@@ -143,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
         listView = findViewById(R.id.cv_list);
-//        btn_tn = (Button) findViewById(R.id.button_TN);
         fab = findViewById(R.id.floatingActionButton);
         news = findViewById(R.id.newspaper);
     }

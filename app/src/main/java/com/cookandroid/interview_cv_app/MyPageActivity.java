@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,7 +23,7 @@ public class MyPageActivity extends AppCompatActivity {
     private DatabaseReference userDB;
     private FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-    TextView email, nickname, name, collagenum, tel;
+    TextView email, name, tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,7 @@ public class MyPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
         email = findViewById(R.id.TextView_email);
-        nickname = findViewById(R.id.TextView_nickname);
         name = findViewById(R.id.TextView_name);
-        collagenum = findViewById(R.id.TextView_collagenum);
         tel = findViewById(R.id.TextView_tel);
 
         userDB.addValueEventListener(new ValueEventListener() {
@@ -46,16 +45,13 @@ public class MyPageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User currentUser = dataSnapshot.getValue(User.class);
 
-                email.setText(currentUser.email);
-                nickname.setText(currentUser.nickname);
-                name.setText(currentUser.username);
-                collagenum.setText(currentUser.collagenum);
-                tel.setText(currentUser.tel);
+                email.setText(currentUser.getEmail());
+                name.setText(currentUser.getUsername());
+                tel.setText(currentUser.getTel());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 

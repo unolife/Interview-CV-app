@@ -6,8 +6,10 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -107,6 +109,8 @@ public class SignInActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                            Toast.makeText(SignInActivity.this, "로그인 되었습니다.",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                             finish();
                             //updateUI(user);

@@ -28,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseUser currentUser = mAuth.getInstance().getCurrentUser();
     private String TAG = "Email, PassWord";
 
-    EditText email_textfield,password_textfield,password2_textfield;
+    EditText email_textfield, password_textfield, password2_textfield;
     Button btn_join;
 
     @Override
@@ -39,40 +39,41 @@ public class SignUpActivity extends AppCompatActivity {
         // 상단 아이콘
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.icon2);
-        email_textfield = findViewById(R.id.EditText_Email);
-        password_textfield = findViewById(R.id.EditText_Password);
-        password2_textfield = findViewById(R.id.EditText_Password2);
+        email_textfield = findViewById(R.id.EditTextEmail);
+        password_textfield = findViewById(R.id.EditTextPassword);
+        password2_textfield = findViewById(R.id.EditTextPassword2);
         btn_join = findViewById(R.id.Button_join);
 
         mAuth = FirebaseAuth.getInstance();
 
         btn_join.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                createAccount(email_textfield.getText().toString(),password_textfield.getText().toString());
+                createAccount(email_textfield.getText().toString(), password_textfield.getText().toString());
             }
         });
-
     }
 
-    private void createAccount(String email, String password){
-
-        if(!validateForm()){return;}
-
-        mAuth.createUserWithEmailAndPassword(email, password )
+    private void createAccount(String email, String password) {
+        if (!validateForm()) {
+            return;
+        }
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            try{setUser();
-                                Toast.makeText(SignUpActivity.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));}catch (Exception e){
+                            try {
+                                setUser();
+                                Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                            } catch (Exception e) {
                                 Log.w(TAG, "회원가입 실패!", task.getException());
-                                Toast.makeText(SignUpActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this, "회원가입 실패", Toast.LENGTH_SHORT).show();
                                 currentUser.delete();
                             }
                         } else {
                             Log.w(TAG, "회원가입 실패!", task.getException());
-                            Toast.makeText(SignUpActivity.this, "회원가입 실패",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "회원가입 실패", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -80,51 +81,51 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setUser() {
         String email = email_textfield.getText().toString();
-        String name = ((EditText) findViewById(R.id.EditText_name)).getText().toString();
-        String nickname = ((EditText) findViewById(R.id.EditText_nickname)).getText().toString();
-        String collagenum = ((EditText) findViewById(R.id.EditText_collagenum)).getText().toString();
-        String tel = ((EditText) findViewById(R.id.EditText_tel)).getText().toString();
+        String name = ((EditText) findViewById(R.id.EditTextName)).getText().toString();
+        String tel = ((EditText) findViewById(R.id.EditTextTel)).getText().toString();
 
         database = FirebaseDatabase.getInstance().getReference();
-        User user = new User(name, email, nickname, collagenum, tel);
+        User user = new User(name, email, tel);
+        database.child("users").child(userId(email)).child("userInfo").setValue(user);
+
     }
 
 
-    private boolean validateForm(){
-        boolean valid =true;
+    private boolean validateForm() {
+        boolean valid = true;
 
         String email = email_textfield.getText().toString();
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             email_textfield.setError("필수입력 항목입니다.");
-            valid =false;
-        }else{
+            valid = false;
+        } else {
             email_textfield.setError(null);
         }
 
         String password = password_textfield.getText().toString();
-        if(TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             password_textfield.setError("필수입력 항목입니다.");
-            valid =false;
-        }else{
+            valid = false;
+        } else {
             password_textfield.setError(null);
         }
 
         String password2 = password2_textfield.getText().toString();
-        if(password.equals(password2)){
+        if (password.equals(password2)) {
             password2_textfield.setError(null);
-        }else{
+        } else {
             password2_textfield.setError("비밀번호가 일치하지 않습니다.");
-            valid =false;
+            valid = false;
         }
         return valid;
     }
 
-    private String userId(String email){
-        String ans ="";
-        for(int i=0; i<email.length();i++) {
-            char a =email.charAt(i);
-            if(a!='.'&&a!='@') {
-                ans +=a;
+    private String userId(String email) {
+        String ans = "";
+        for (int i = 0; i < email.length(); i++) {
+            char a = email.charAt(i);
+            if (a != '.' && a != '@') {
+                ans += a;
             }
         }
         return ans;
@@ -138,7 +139,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.signIn:
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);

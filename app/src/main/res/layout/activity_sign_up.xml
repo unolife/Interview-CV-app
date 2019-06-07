@@ -1,139 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="이메일"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_gravity="center"
-        android:id="@+id/EditText_Email"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/email" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="비밀번호"/>
-    <EditText
-        android:inputType="textPassword"
-        android:id="@+id/EditText_Password"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="비밀번호 확인"/>
-    <EditText
-        android:id="@+id/EditText_Password2"
-        android:inputType="textPassword"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="닉네임"/>
-    <EditText
-        android:id="@+id/EditText_nickname"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="이름"/>
-    <EditText
-        android:id="@+id/EditText_name"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="학번"/>
-    <EditText
-        android:id="@+id/EditText_collagenum"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#ff555555"
-        android:textSize="15dp"
-        android:text="전화번호"/>
-    <EditText
-        android:id="@+id/EditText_tel"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:background="@drawable/edit_background_on"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/password"
+            android:password="true"
+            tools:ignore="Deprecated" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditTextPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/password2"
+            android:password="true"
+            tools:ignore="Deprecated" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditTextName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/name" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditTextTel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/tel" />
+    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/Button_join"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
         android:layout_width="355dp"
         android:layout_height="50dp"
-        android:text="가입하기"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_green"
+        android:text="가입하기" />
 
 </LinearLayout>
